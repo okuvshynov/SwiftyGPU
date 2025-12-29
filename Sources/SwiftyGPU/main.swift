@@ -41,7 +41,7 @@ extension String {
 func getAccelerators() -> [Dictionary<String, AnyObject>] {
     var accelerators: [Dictionary<String, AnyObject>] = []
     var iterator = io_iterator_t()
-    if IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(kIOAcceleratorClassName), &iterator) == kIOReturnSuccess {
+    if IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IOAccelerator"), &iterator) == kIOReturnSuccess {
         repeat {
             let entry = IOIteratorNext(iterator)
             defer {
